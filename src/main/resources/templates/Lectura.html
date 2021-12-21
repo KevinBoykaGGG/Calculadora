@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:mth="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lectura</title>
+</head>
+<body>
+	<h1>Ingresa los numeros</h1>
+
+	<form th:action="@{/app/resultados}" th:object="${calculadora}" method="post">
+		<div>
+			<div>
+				<label for="numero1">numero 1</label><br>
+				<div>
+					<input type="number" name="numero1" th:field="*{numero1}">
+					
+				</div>
+				 <div th:if="${#fields.hasErrors('numero1')}" th:errors="*{numero1}"></div>
+			</div>
+			<div>
+				<label for="numero2" >numero 2</label><br>
+				<div>
+					<input type="number" name="numero2"  th:field="*{numero2}" >
+				</div>
+                  <div th:if="${#fields.hasErrors('numero2')}" th:errors="*{numero2}"></div>
+
+			</div>
+
+			<div>
+				<input type="radio" name="metodo" value="Suma" />Suma<br />
+			</div>
+			<div>
+				<input type="radio" name="metodo" value="Resta" />Resta<br />
+			</div>
+			<div>
+				<input type="radio" name="metodo" value="Multiplicacion" />Multiplicacion<br />
+			</div>
+			<div>
+				<input type="radio" name="metodo" value="Division" />Division<br />
+			</div>
+			<br />
+			<div>
+				<input type="submit" value="Resolver">
+			</div>
+		</div>
+	</form>
+</body>
+</html>
